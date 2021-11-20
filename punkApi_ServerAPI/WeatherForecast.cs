@@ -2,7 +2,7 @@ namespace punkApi_ServerAPI;
 
 public class WeatherForecast
 {
-    public DateTime Date { get; set; }
+    public System.DateTime Date { get; set; }
 
     public int TemperatureC { get; set; }
 

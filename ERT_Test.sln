@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PunkApi_Data", "PunkApi_Data\PunkApi_Data.csproj", "{2E2DEC57-E545-43A2-A138-88ECA3195FEF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "punkApi_ServerAPI", "punkApi_ServerAPI\punkApi_ServerAPI.csproj", "{7E1D91DA-709C-4367-8CD4-36C8216E4F34}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2E2DEC57-E545-43A2-A138-88ECA3195FEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E2DEC57-E545-43A2-A138-88ECA3195FEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E2DEC57-E545-43A2-A138-88ECA3195FEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E2DEC57-E545-43A2-A138-88ECA3195FEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E1D91DA-709C-4367-8CD4-36C8216E4F34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E1D91DA-709C-4367-8CD4-36C8216E4F34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E1D91DA-709C-4367-8CD4-36C8216E4F34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E1D91DA-709C-4367-8CD4-36C8216E4F34}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4B088E5A-91CA-4792-94A4-91DC0E8614B4}
+	EndGlobalSection
+EndGlobal

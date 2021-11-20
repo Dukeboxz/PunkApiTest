@@ -1,0 +1,14 @@
+C:\Users\Stephen\Documents\Job Hunt\ERT_Test\PunkApi_Data\bin\Debug\net6.0\PunkApi_Data.deps.json
+C:\Users\Stephen\Documents\Job Hunt\ERT_Test\PunkApi_Data\bin\Debug\net6.0\PunkApi_Data.runtimeconfig.json
+C:\Users\Stephen\Documents\Job Hunt\ERT_Test\PunkApi_Data\bin\Debug\net6.0\PunkApi_Data.dll
+C:\Users\Stephen\Documents\Job Hunt\ERT_Test\PunkApi_Data\bin\Debug\net6.0\ref\PunkApi_Data.dll
+C:\Users\Stephen\Documents\Job Hunt\ERT_Test\PunkApi_Data\bin\Debug\net6.0\PunkApi_Data.pdb
+C:\Users\Stephen\Documents\Job Hunt\ERT_Test\PunkApi_Data\obj\Debug\net6.0\PunkApi_Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Stephen\Documents\Job Hunt\ERT_Test\PunkApi_Data\obj\Debug\net6.0\PunkApi_Data.AssemblyInfoInputs.cache
+C:\Users\Stephen\Documents\Job Hunt\ERT_Test\PunkApi_Data\obj\Debug\net6.0\PunkApi_Data.AssemblyInfo.cs
+C:\Users\Stephen\Documents\Job Hunt\ERT_Test\PunkApi_Data\obj\Debug\net6.0\PunkApi_Data.csproj.CoreCompileInputs.cache
+C:\Users\Stephen\Documents\Job Hunt\ERT_Test\PunkApi_Data\obj\Debug\net6.0\PunkApi_Data.dll
+C:\Users\Stephen\Documents\Job Hunt\ERT_Test\PunkApi_Data\obj\Debug\net6.0\ref\PunkApi_Data.dll
+C:\Users\Stephen\Documents\Job Hunt\ERT_Test\PunkApi_Data\obj\Debug\net6.0\PunkApi_Data.pdb
+C:\Users\Stephen\Documents\Job Hunt\ERT_Test\PunkApi_Data\obj\Debug\net6.0\PunkApi_Data.genruntimeconfig.cache
+C:\Users\Stephen\Documents\Job Hunt\ERT_Test\PunkApi_Data\obj\Debug\net6.0\PunkApi_Data.csproj.AssemblyReference.cache
