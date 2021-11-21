@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Stephen\\Documents\\Job Hunt\\ERT_Test\\ERT_Test.csproj": {}
+    "C:\\Users\\Stephen\\Documents\\Job Hunt\\ERT_Test\\ERT_Test.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Stephen\\Documents\\Job Hunt\\ERT_Test\\ERT_Test.csproj": {
+    "C:\\Users\\Stephen\\Documents\\Job Hunt\\ERT_Test\\ERT_Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Stephen\\Documents\\Job Hunt\\ERT_Test\\ERT_Test.csproj",
+        "projectUniqueName": "C:\\Users\\Stephen\\Documents\\Job Hunt\\ERT_Test\\ERT_Test.csproj",
         "projectName": "ERT_Test",
-        "projectPath": "c:\\Users\\Stephen\\Documents\\Job Hunt\\ERT_Test\\ERT_Test.csproj",
+        "projectPath": "C:\\Users\\Stephen\\Documents\\Job Hunt\\ERT_Test\\ERT_Test.csproj",
         "packagesPath": "C:\\Users\\Stephen\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Stephen\\Documents\\Job Hunt\\ERT_Test\\obj\\",
+        "outputPath": "C:\\Users\\Stephen\\Documents\\Job Hunt\\ERT_Test\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",

@@ -4,8 +4,16 @@ using System.Text.Json.Serialization;
 
 public class Beer
     {
-        [JsonPropertyName("id")]
+
+        public Beer()
+        {
+            this.UserFavourites = new HashSet<UserFavourites>();
+        }
+       
         public int Id { get; set; }
+
+        [JsonPropertyName("id")]
+        public int BeerId { get; set; } 
 
         [JsonPropertyName("name")]
         public string? Name { get; set; }
@@ -44,7 +52,7 @@ public class Beer
         public double Ph { get; set; }
 
         [JsonPropertyName("attenuation_level")]
-        public int AttenuationLevel { get; set; }
+        public double AttenuationLevel { get; set; }
 
         //[JsonPropertyName("volume")]
         //public Volume? Volume { get; set; }
@@ -66,6 +74,8 @@ public class Beer
 
         [JsonPropertyName("contributed_by")]
         public string? ContributedBy { get; set; }
+
+    public virtual ICollection<UserFavourites> UserFavourites { get; set;}
 
        
     }

@@ -2,26 +2,26 @@
     <input  id="SearchInput" matInput placeholder="" [(ngModel)]="searchTerm" value="Search Beers">
   </mat-form-field>
   <button mat-button (click)="SearchBeersByName()">Search</button>
-<mat-table [dataSource]="displayBeers" class="mat-elevation-z8">
+<mat-table class="beerTable" [dataSource]="displayBeers" class="mat-elevation-z8">
     <ng-container matColumnDef="name">
         <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
         <mat-cell *matCellDef="let beer"> {{beer.name}} </mat-cell>
       </ng-container>
       <ng-container matColumnDef="tagline">
-        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef> Tagline </mat-header-cell>
         <mat-cell *matCellDef="let beer"> {{beer.tagline}} </mat-cell>
       </ng-container>
       <ng-container matColumnDef="first_brewed">
-        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef> First Brewed </mat-header-cell>
         <mat-cell *matCellDef="let beer"> {{beer.first_brewed}} </mat-cell>
       </ng-container>
       <ng-container matColumnDef="abv">
-        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef> Abv </mat-header-cell>
         <mat-cell *matCellDef="let beer"> {{beer.abv}} </mat-cell>
       </ng-container>
 
       <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
-<mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></mat-row>
+<mat-row  (click)="ShowBeerDetail(myRowData)" *matRowDef="let myRowData; columns: columnsToDisplay"></mat-row>
 
 
 </mat-table>

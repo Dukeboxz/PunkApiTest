@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>Beer Detail</h1>
+<div mat-dialog-content class="beerDetailBox">
+    <div class="DescriptionDiv" style="width: 50%;">
+        <div><span>Name: </span>{{data.name}}</div>
+        <div><span>Description: </span>{{data.description}}</div>
+    </div>
+    <mat-divider [vertical]="true"></mat-divider>
+    <div style="width: 45%;height: 50px;">
+        <img src={{data.imageUrl}} alt="Image of beer">
+    </div>
+</div>
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Close</button>
+    <button mat-button mat-dialog-close (click)="AddToFavourites()">Add To Favourites</button>
+</div>
+

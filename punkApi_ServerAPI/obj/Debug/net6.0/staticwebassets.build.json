@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "f94wkbsd1w5k3WffyyzZmtYLqeMjs3827mEUsfsYiJA=",
+  "Source": "punkApi_ServerAPI",
+  "BasePath": "_content/punkApi_ServerAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

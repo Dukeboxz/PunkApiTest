@@ -1,0 +1,7 @@
+C:\Users\Stephen\Documents\Job Hunt\ERT_Test\obj\Debug\net6.0\ERT_Test.csproj.AssemblyReference.cache
+C:\Users\Stephen\Documents\Job Hunt\ERT_Test\obj\Debug\net6.0\ERT_Test.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Stephen\Documents\Job Hunt\ERT_Test\obj\Debug\net6.0\ERT_Test.AssemblyInfoInputs.cache
+C:\Users\Stephen\Documents\Job Hunt\ERT_Test\obj\Debug\net6.0\ERT_Test.AssemblyInfo.cs
+C:\Users\Stephen\Documents\Job Hunt\ERT_Test\obj\Debug\net6.0\ERT_Test.csproj.CoreCompileInputs.cache
+C:\Users\Stephen\Documents\Job Hunt\ERT_Test\obj\Debug\net6.0\ERT_Test.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Stephen\Documents\Job Hunt\ERT_Test\obj\Debug\net6.0\ERT_Test.MvcApplicationPartsAssemblyInfo.cache

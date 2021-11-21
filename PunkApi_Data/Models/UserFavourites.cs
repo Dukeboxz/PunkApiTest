@@ -7,10 +7,14 @@ namespace PunkApi_Data.Models
 {
     public class UserFavourites
     {
+        public UserFavourites()
+        {
+            this.Favourites = new HashSet<Beer>(); 
+        }
         public int UserFavouritesId { get; set; }
         public string UserID { get; set; }
 
-        public List<Beer> Favourites { get; set; }
+        public ICollection<Beer> Favourites { get; set; }
 
     }
 }

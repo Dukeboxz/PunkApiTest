@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using PunkApi_Data.Models;
+using punkApi_ServerAPI.ControllerServices;
 using punkApi_ServerAPI.ViewModels;
 
 namespace punkApi_ServerAPI.Controllers
@@ -26,15 +27,15 @@ namespace punkApi_ServerAPI.Controllers
                     {
                         ReturnObj.Message = "Success"; 
                         ReturnObj.UserId = userDetail.UserID;
-                        ReturnObj.Beers = userDetail.Favourites;
+                        ReturnObj.Beers = userDetail.Favourites.ToList();
 
 
                     }
                     else
                     {
-
+                        UserFavouritesService.AddNewUser(context, userID, null);
                         ReturnObj.Message = "NoneFound";
-                        ReturnObj.UserId = userDetail.UserID;
+                        ReturnObj.UserId = userID;
                         ReturnObj.Beers = new List<Beer>(); 
 
                     }
@@ -58,7 +59,8 @@ namespace punkApi_ServerAPI.Controllers
         public ActionResult<ReturnViewModel> AddFavourite(string userId, Beer newBeer)
         {
             ReturnViewModel returnView = new ReturnViewModel();
-            returnView.UserId = userId; 
+            returnView.UserId = userId;
+            returnView.Beers = new List<Beer>();
             try
             {
                 using (var context = new UserBeerContext())
@@ -67,19 +69,40 @@ namespace punkApi_ServerAPI.Controllers
 
                     if(existingUser != null)
                     {
-
+                        if(existingUser.Favourites is null)
+                        {
+                            existingUser.Favourites = new List<Beer>();
+                            existingUser.Favourites.Add(newBeer);
+                            
+                            context.UserFavourites.Update(existingUser);
+                        }
+                        else
+                        {
+                            if (existingUser.Favourites.Count == 5)
+                            {
+                                returnView.Message = "TooMany";
+                            }
+                            else
+                            {
+                                existingUser.Favourites.Add(newBeer);
+                                context.UserFavourites.Update(existingUser);
+                            }
+                        }
+                        
                     }
                     else
                     {
-                        AddNewUser(context, userId, newBeer); 
+                       UserFavouritesService.AddNewUser(context, userId, newBeer); 
                     }
+                   context.SaveChanges();
+
                 }
 
 
             }catch (Exception)
             {
                 returnView.Message = "Error"; 
-                returnView.Beers = new List<Beer>();
+                
                
             }
 
@@ -88,20 +111,33 @@ namespace punkApi_ServerAPI.Controllers
             return Content(json);
         }
 
-        public void AddNewUser(UserBeerContext context, string userid, Beer newBeer)
+        [HttpPost("NewUser")]
+        public ActionResult CreateNewUser(string userId)
         {
+            ReturnViewModel returnView = new ReturnViewModel();
             try
             {
-                PunkApi_Data.Models.UserFavourites newUser = new PunkApi_Data.Models.UserFavourites();
-                newUser.UserID = userid;
-                newUser.Favourites = new List<Beer>() { newBeer };
+                using (var context = new UserBeerContext())
+                {
+                    PunkApi_Data.Models.UserFavourites newUser = UserFavouritesService.AddNewUser(context, userId);
+                    returnView.Message = "Success"; 
+                    returnView.UserId= newUser.UserID;
+                    returnView.Beers = newUser.Favourites.ToList();
 
-                context.UserFavourites.Add(newUser);
+                }
             }
             catch (Exception)
             {
-                throw new Exception("Failed to add new user");
+                returnView.Message = "Error";
             }
+
+            string json = JsonConvert.SerializeObject(returnView);
+
+            return Content(json);
         }
+
+        
+
+       
     }
 }

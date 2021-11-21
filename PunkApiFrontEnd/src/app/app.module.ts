@@ -7,16 +7,20 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
 import {MatInputModule} from '@angular/material/input';
 import { MatPaginatorModule} from '@angular/material/paginator'
 import { MatSortModule} from '@angular/material/sort'
+import {MatDividerModule} from '@angular/material/divider'
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BeerListComponent } from './beer-list/beer-list.component';
+import { BeerDetailComponent } from './beer-detail/beer-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BeerListComponent
+    BeerListComponent,
+    BeerDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +29,7 @@ import { BeerListComponent } from './beer-list/beer-list.component';
     BrowserAnimationsModule,
     HttpClientModule,
     MatInputModule, MatPaginatorModule, MatProgressSpinnerModule, 
-  MatSortModule, MatTableModule 
+  MatSortModule, MatTableModule , MatDividerModule, MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

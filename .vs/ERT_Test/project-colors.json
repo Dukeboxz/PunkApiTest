@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "7e1d91da-709c-4367-8cd4-36c8216e4f34": {
+      "ProjectGuid": "7e1d91da-709c-4367-8cd4-36c8216e4f34",
+      "DisplayName": "punkApi_ServerAPI",
+      "ColorIndex": 0
+    },
+    "2e2dec57-e545-43a2-a138-88eca3195fef": {
+      "ProjectGuid": "2e2dec57-e545-43a2-a138-88eca3195fef",
+      "DisplayName": "PunkApi_Data",
+      "ColorIndex": 1
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 2
+}

@@ -1,9 +1,11 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
+import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 
 import { Beer } from '../Interfaces/Beer';
 import { BeerService } from '../Services/beer.service';
+import { BeerDetailComponent } from '../beer-detail/beer-detail.component';
 
 @Component({
   selector: 'app-beer-list',
@@ -21,7 +23,7 @@ export class BeerListComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private BeerService: BeerService) { }
+  constructor(private BeerService: BeerService, public dialog: MatDialog ) { }
 
   ngOnInit(): void {
     console.log("In Init"); 
@@ -104,4 +106,15 @@ export class BeerListComponent implements OnInit {
     
   }
 
+  ShowBeerDetail(selected: Beer): void
+{
+  this.dialog.open(BeerDetailComponent, {
+    data: {
+      name: selected.name,
+      description: selected.description,
+      imageUrl: selected.image_url,
+      beerId: selected.id
+    }
+  })
+}
 }
