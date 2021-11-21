@@ -5,15 +5,11 @@ using System.Text.Json.Serialization;
 public class Beer
     {
 
-        public Beer()
-        {
-            this.UserFavourites = new HashSet<UserFavourites>();
-        }
+      
        
-        public int Id { get; set; }
-
+        public int BeerId { get; set; }
         [JsonPropertyName("id")]
-        public int BeerId { get; set; } 
+        public int ApiId { get; set; } 
 
         [JsonPropertyName("name")]
         public string? Name { get; set; }
@@ -75,7 +71,8 @@ public class Beer
         [JsonPropertyName("contributed_by")]
         public string? ContributedBy { get; set; }
 
-    public virtual ICollection<UserFavourites> UserFavourites { get; set;}
+    [JsonIgnore]
+    public virtual IList<UserBeers>? UserBeers { get; set;}
 
        
     }

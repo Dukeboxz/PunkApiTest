@@ -23,20 +23,20 @@ namespace PunkApi_Data.Migrations
 
             modelBuilder.Entity("Beer", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("BeerId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BeerId"), 1L, 1);
 
                     b.Property<double>("Abv")
                         .HasColumnType("float");
 
+                    b.Property<int>("ApiId")
+                        .HasColumnType("int");
+
                     b.Property<double>("AttenuationLevel")
                         .HasColumnType("float");
-
-                    b.Property<int>("BeerId")
-                        .HasColumnType("int");
 
                     b.Property<string>("BrewersTips")
                         .HasColumnType("nvarchar(max)");
@@ -77,24 +77,24 @@ namespace PunkApi_Data.Migrations
                     b.Property<int>("TargetOg")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("BeerId");
 
                     b.ToTable("Beers");
                 });
 
-            modelBuilder.Entity("BeerUserFavourites", b =>
+            modelBuilder.Entity("PunkApi_Data.Models.UserBeers", b =>
                 {
-                    b.Property<int>("FavouritesId")
-                        .HasColumnType("int");
-
                     b.Property<int>("UserFavouritesId")
                         .HasColumnType("int");
 
-                    b.HasKey("FavouritesId", "UserFavouritesId");
+                    b.Property<int>("BeerId")
+                        .HasColumnType("int");
 
-                    b.HasIndex("UserFavouritesId");
+                    b.HasKey("UserFavouritesId", "BeerId");
 
-                    b.ToTable("BeerUserFavourites");
+                    b.HasIndex("BeerId");
+
+                    b.ToTable("UserBeers");
                 });
 
             modelBuilder.Entity("PunkApi_Data.Models.UserFavourites", b =>
@@ -114,19 +114,33 @@ namespace PunkApi_Data.Migrations
                     b.ToTable("UserFavourites");
                 });
 
-            modelBuilder.Entity("BeerUserFavourites", b =>
+            modelBuilder.Entity("PunkApi_Data.Models.UserBeers", b =>
                 {
-                    b.HasOne("Beer", null)
-                        .WithMany()
-                        .HasForeignKey("FavouritesId")
+                    b.HasOne("Beer", "Beer")
+                        .WithMany("UserBeers")
+                        .HasForeignKey("BeerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("PunkApi_Data.Models.UserFavourites", null)
-                        .WithMany()
+                    b.HasOne("PunkApi_Data.Models.UserFavourites", "UserFavourites")
+                        .WithMany("UserBeers")
                         .HasForeignKey("UserFavouritesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Beer");
+
+                    b.Navigation("UserFavourites");
+                });
+
+            modelBuilder.Entity("Beer", b =>
+                {
+                    b.Navigation("UserBeers");
+                });
+
+            modelBuilder.Entity("PunkApi_Data.Models.UserFavourites", b =>
+                {
+                    b.Navigation("UserBeers");
                 });
 #pragma warning restore 612, 618
         }

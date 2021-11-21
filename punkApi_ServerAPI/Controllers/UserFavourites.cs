@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using PunkApi_Data.Models;
 using punkApi_ServerAPI.ControllerServices;
 using punkApi_ServerAPI.ViewModels;
+using System.Data.Entity;
 
 namespace punkApi_ServerAPI.Controllers
 {
@@ -19,28 +20,29 @@ namespace punkApi_ServerAPI.Controllers
             {
                 using(var context = new UserBeerContext())
                 {
-                    var ReturnObj = new ReturnViewModel();
+                    var ReturnView = new ReturnViewModel();
 
                     var userDetail = context.UserFavourites.Where(x=> x.UserID == userID).FirstOrDefault();
                     
+                    
                     if(userDetail != null)
                     {
-                        ReturnObj.Message = "Success"; 
-                        ReturnObj.UserId = userDetail.UserID;
-                        ReturnObj.Beers = userDetail.Favourites.ToList();
+                        ReturnView.Message = "Success"; 
+                        ReturnView.UserId = userDetail.UserID;
+                        ReturnView.Beers = UserFavouritesService.GetUsersFavourites(context, userDetail.UserID);
 
 
                     }
                     else
                     {
                         UserFavouritesService.AddNewUser(context, userID, null);
-                        ReturnObj.Message = "NoneFound";
-                        ReturnObj.UserId = userID;
-                        ReturnObj.Beers = new List<Beer>(); 
+                        ReturnView.Message = "NoneFound";
+                        ReturnView.UserId = userID;
+                        ReturnView.Beers = new List<Beer>(); 
 
                     }
 
-                    string json = JsonConvert.SerializeObject(ReturnObj);
+                    string json = JsonConvert.SerializeObject(ReturnView);
 
                     return Content(json);
 
@@ -67,32 +69,36 @@ namespace punkApi_ServerAPI.Controllers
                 {
                     var existingUser = context.UserFavourites.Where(x=> x.UserID == userId).FirstOrDefault();
 
+                  
+
                     if(existingUser != null)
                     {
-                        if(existingUser.Favourites is null)
-                        {
-                            existingUser.Favourites = new List<Beer>();
-                            existingUser.Favourites.Add(newBeer);
+                       
+                        //if (existingUser.Favourites is null)
+                        //{
+                        //    existingUser.Favourites = new List<Beer>();
+                        //    existingUser.Favourites.Add(newBeer);
                             
-                            context.UserFavourites.Update(existingUser);
-                        }
-                        else
-                        {
-                            if (existingUser.Favourites.Count == 5)
-                            {
-                                returnView.Message = "TooMany";
-                            }
-                            else
-                            {
-                                existingUser.Favourites.Add(newBeer);
-                                context.UserFavourites.Update(existingUser);
-                            }
-                        }
+                        //    context.UserFavourites.Update(existingUser);
+                        //}
+                        //else
+                        //{
+                        //    if (existingUser.Favourites.Count == 5)
+                        //    {
+                        //        returnView.Message = "TooMany";
+                        //    }
+                        //    else
+                        //    {
+                        //        existingUser.Favourites.Add(newBeer);
+                        //        context.UserFavourites.Update(existingUser);
+                        //    }
+                        //}
                         
                     }
                     else
                     {
-                       UserFavouritesService.AddNewUser(context, userId, newBeer); 
+                       UserFavouritesService.AddNewUser(context, userId, newBeer);
+                        returnView.Message = "Success"; 
                     }
                    context.SaveChanges();
 
@@ -122,7 +128,7 @@ namespace punkApi_ServerAPI.Controllers
                     PunkApi_Data.Models.UserFavourites newUser = UserFavouritesService.AddNewUser(context, userId);
                     returnView.Message = "Success"; 
                     returnView.UserId= newUser.UserID;
-                    returnView.Beers = newUser.Favourites.ToList();
+                   
 
                 }
             }

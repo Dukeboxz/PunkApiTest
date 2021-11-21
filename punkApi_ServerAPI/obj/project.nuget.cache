@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "2gme9z4PdIWPzke/608op2hJoCOvEqqIA5yHOmxEsp3fPmnde6wwv//SM7Zuume5kVho99OJcvo1klrXLhuGVw==",
+  "dgSpecHash": "/SsNORhsAxNwIRZ9tIyaadhGWFo+OMWevd+p5gTj+f12ta2j798CdrD+aqdeC7GWrYt4ukoAduNcviWAg8Mgzw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Stephen\\Documents\\Job Hunt\\ERT_Test\\punkApi_ServerAPI\\punkApi_ServerAPI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Stephen\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\Stephen\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\Stephen\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Stephen\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",

@@ -15,7 +15,7 @@ import { BeerDetailComponent } from '../beer-detail/beer-detail.component';
 export class BeerListComponent implements OnInit {
 
   displayBeers: Beer[] = []; 
-  columnsToDisplay = ['name', 'tagline', 'first_brewed','abv'];
+  columnsToDisplay = ['name', 'tagline', 'first_brewed','abv', 'action'];
   searchTerm: string =''; 
   length = 100;
   pageSize = 10;
@@ -117,4 +117,9 @@ export class BeerListComponent implements OnInit {
     }
   })
 }
+
+  AddBeerToFavourites(beerId: number)
+  {
+    const beerToAdd = this.displayBeers.find(x=> x.id == beerId); 
+  }
 }

@@ -61,3 +61,11 @@ C:\Users\Stephen\Documents\Job Hunt\ERT_Test\punkApi_ServerAPI\obj\Debug\net6.0\
 C:\Users\Stephen\Documents\Job Hunt\ERT_Test\punkApi_ServerAPI\obj\Debug\net6.0\ref\punkApi_ServerAPI.dll
 C:\Users\Stephen\Documents\Job Hunt\ERT_Test\punkApi_ServerAPI\obj\Debug\net6.0\punkApi_ServerAPI.pdb
 C:\Users\Stephen\Documents\Job Hunt\ERT_Test\punkApi_ServerAPI\obj\Debug\net6.0\punkApi_ServerAPI.genruntimeconfig.cache
+C:\Users\Stephen\Documents\Job Hunt\ERT_Test\punkApi_ServerAPI\bin\Debug\net6.0\System.CodeDom.dll
+C:\Users\Stephen\Documents\Job Hunt\ERT_Test\punkApi_ServerAPI\bin\Debug\net6.0\System.Data.SqlClient.dll
+C:\Users\Stephen\Documents\Job Hunt\ERT_Test\punkApi_ServerAPI\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+C:\Users\Stephen\Documents\Job Hunt\ERT_Test\punkApi_ServerAPI\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+C:\Users\Stephen\Documents\Job Hunt\ERT_Test\punkApi_ServerAPI\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+C:\Users\Stephen\Documents\Job Hunt\ERT_Test\punkApi_ServerAPI\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Stephen\Documents\Job Hunt\ERT_Test\punkApi_ServerAPI\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Stephen\Documents\Job Hunt\ERT_Test\punkApi_ServerAPI\bin\Debug\net6.0\Dapper.dll
