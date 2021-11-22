@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using PunkApi_Data.Models;
 using punkApi_ServerAPI.ControllerServices;
 using punkApi_ServerAPI.ViewModels;
@@ -8,10 +9,16 @@ using System.Data.Entity;
 
 namespace punkApi_ServerAPI.Controllers
 {
+
     [Route("api/[controller]")]
     [ApiController]
     public class UserFavourites : ControllerBase
     {
+
+        DefaultContractResolver contractResolver = new DefaultContractResolver
+        {
+            NamingStrategy = new CamelCaseNamingStrategy()
+        };
 
         [HttpGet]
         public ActionResult<ReturnViewModel> GetUserFavourites(string userID)
@@ -36,13 +43,17 @@ namespace punkApi_ServerAPI.Controllers
                     else
                     {
                         UserFavouritesService.AddNewUser(context, userID, null);
-                        ReturnView.Message = "NoneFound";
+                        ReturnView.Message = "Success";
                         ReturnView.UserId = userID;
                         ReturnView.Beers = new List<Beer>(); 
 
                     }
 
-                    string json = JsonConvert.SerializeObject(ReturnView);
+                    string json = JsonConvert.SerializeObject(ReturnView, new JsonSerializerSettings
+                    {
+                        ContractResolver = contractResolver,
+                        Formatting = Formatting.Indented
+                    });
 
                     return Content(json);
 
@@ -74,25 +85,24 @@ namespace punkApi_ServerAPI.Controllers
                     if(existingUser != null)
                     {
                        
-                        //if (existingUser.Favourites is null)
-                        //{
-                        //    existingUser.Favourites = new List<Beer>();
-                        //    existingUser.Favourites.Add(newBeer);
-                            
-                        //    context.UserFavourites.Update(existingUser);
-                        //}
-                        //else
-                        //{
-                        //    if (existingUser.Favourites.Count == 5)
-                        //    {
-                        //        returnView.Message = "TooMany";
-                        //    }
-                        //    else
-                        //    {
-                        //        existingUser.Favourites.Add(newBeer);
-                        //        context.UserFavourites.Update(existingUser);
-                        //    }
-                        //}
+                        List<Beer> beers = UserFavouritesService.GetUsersFavourites(context, existingUser.UserID);
+
+                        if(beers.Count() == 5)
+                        {
+                            returnView.Message = "TooMany";
+
+                        }
+                        else
+                        {
+                            if(!UserFavouritesService.AddBeerToUserFavs(context, existingUser.UserID, newBeer)){
+
+                                throw new Exception("Failed to save favourite");
+                            }
+                            else
+                            {
+                                returnView.Message = "Success"; 
+                            }
+                        }
                         
                     }
                     else
@@ -117,17 +127,32 @@ namespace punkApi_ServerAPI.Controllers
             return Content(json);
         }
 
-        [HttpPost("NewUser")]
-        public ActionResult CreateNewUser(string userId)
+        [HttpPost("User")]
+        public ActionResult CreateOrReturnUser(string userId)
         {
             ReturnViewModel returnView = new ReturnViewModel();
             try
             {
                 using (var context = new UserBeerContext())
                 {
-                    PunkApi_Data.Models.UserFavourites newUser = UserFavouritesService.AddNewUser(context, userId);
-                    returnView.Message = "Success"; 
-                    returnView.UserId= newUser.UserID;
+                    var existingUser = context.UserFavourites.Where(s=> s.UserID == userId).FirstOrDefault();
+
+                    if( existingUser != null)
+                    {
+                        returnView.Message = "Success";
+                        returnView.UserId = existingUser.UserID; 
+                        returnView.Beers = UserFavouritesService.GetUsersFavourites(context, existingUser.UserID);
+                    }
+                    else
+                    {
+                        PunkApi_Data.Models.UserFavourites newUser = UserFavouritesService.AddNewUser(context, userId);
+                        returnView.Message = "Success";
+                        returnView.UserId = newUser.UserID;
+                        returnView.Beers = new List<Beer>(); 
+
+                    }
+
+                    
                    
 
                 }

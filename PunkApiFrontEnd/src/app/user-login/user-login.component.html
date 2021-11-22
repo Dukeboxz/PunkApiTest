@@ -1,0 +1,15 @@
+<form [formGroup]="LoginForm" >
+    <mat-form-field>
+        <input matInput formControlName="UserId" id="userid" placeholder="User Name"  >
+    </mat-form-field>
+    <mat-error *ngIf="LoginForm.controls['UserId'].invalid &&LoginForm.controls['UserId'].dirty ">Error</mat-error>
+    <mat-error *ngIf="LoginForm.controls['UserId'].dirty && LoginForm.controls['UserId'].errors?.email">Error</mat-error>
+    <button mat-raised-button color="primary" (click)="Login()">Login</button>
+    
+</form>
+<div *ngIf="UserId">
+    <h2>Welcome user : {{UserId}}</h2>
+    <button mat-raised-button color="primary" (click)="ShowFavourites(true)">Show Favourites</button>
+    <button mat-raised-button color="primary" (click)="ShowFavourites(false)">Show List</button>
+
+</div>

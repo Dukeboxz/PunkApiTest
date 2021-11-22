@@ -9,18 +9,21 @@ import { MatPaginatorModule} from '@angular/material/paginator'
 import { MatSortModule} from '@angular/material/sort'
 import {MatDividerModule} from '@angular/material/divider'
 import {MatDialogModule} from '@angular/material/dialog';
+import { ReactiveFormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BeerListComponent } from './beer-list/beer-list.component';
 import { BeerDetailComponent } from './beer-detail/beer-detail.component';
+import { UserLoginComponent } from './user-login/user-login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BeerListComponent,
-    BeerDetailComponent
+    BeerDetailComponent,
+    UserLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,7 @@ import { BeerDetailComponent } from './beer-detail/beer-detail.component';
     BrowserAnimationsModule,
     HttpClientModule,
     MatInputModule, MatPaginatorModule, MatProgressSpinnerModule, 
-  MatSortModule, MatTableModule , MatDividerModule, MatDialogModule
+  MatSortModule, MatTableModule , MatDividerModule, MatDialogModule, ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

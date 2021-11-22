@@ -15,9 +15,6 @@ export class BeerDetailComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  AddToFavourites()
-  {
-
-  }
+ 
 
 }

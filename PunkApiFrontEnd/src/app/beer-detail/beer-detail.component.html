@@ -3,6 +3,7 @@
     <div class="DescriptionDiv" style="width: 50%;">
         <div><span>Name: </span>{{data.name}}</div>
         <div><span>Description: </span>{{data.description}}</div>
+        <div><span>Abv: </span>{{data.abv}}</div>
     </div>
     <mat-divider [vertical]="true"></mat-divider>
     <div style="width: 45%;height: 50px;">
@@ -11,6 +12,6 @@
 </div>
 <div mat-dialog-actions>
     <button mat-button mat-dialog-close>Close</button>
-    <button mat-button mat-dialog-close (click)="AddToFavourites()">Add To Favourites</button>
+    
 </div>
 

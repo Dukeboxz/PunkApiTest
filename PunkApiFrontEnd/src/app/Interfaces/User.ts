@@ -2,6 +2,6 @@ import { Beer } from "./Beer";
 
 export interface User {
 
-    userId: string; 
+    UserId: string; 
     favourities: Beer[];  
 }
