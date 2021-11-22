@@ -19,7 +19,7 @@ namespace PunkApi_Data.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=tcp:stephenandsharon.database.windows.net,1433;Initial Catalog=Ert-Test;Persist Security Info=False;User ID=u04sjj;Password=R0ssC0unty4ever;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"); 
+            optionsBuilder.UseSqlServer(@"Server=tcp:stephenandsharon.database.windows.net,1433;Initial Catalog=Ert-Test;Persist Security Info=False;User ID=u04sjj;Password=;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"); 
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
