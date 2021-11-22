@@ -1,14 +1,22 @@
 <h1 mat-dialog-title>Beer Detail</h1>
 <div mat-dialog-content class="beerDetailBox">
-    <div class="DescriptionDiv" style="width: 50%;">
-        <div><span>Name: </span>{{data.name}}</div>
-        <div><span>Description: </span>{{data.description}}</div>
-        <div><span>Abv: </span>{{data.abv}}</div>
-    </div>
-    <mat-divider [vertical]="true"></mat-divider>
-    <div style="width: 45%;height: 50px;">
-        <img src={{data.imageUrl}} alt="Image of beer">
-    </div>
+    <mat-grid-list cols="2" >
+        <mat-grid-tile>
+            <div class="DescriptionDiv" >
+                <div><span>Name: </span>{{data.name}}</div>
+                <div><span>Description: </span>{{data.description}}</div>
+                <div><span>Abv: </span>{{data.abv}}</div>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div >
+                <img src={{data.imageUrl}} alt="Image of beer">
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+    
+    
+    
 </div>
 <div mat-dialog-actions>
     <button mat-button mat-dialog-close>Close</button>

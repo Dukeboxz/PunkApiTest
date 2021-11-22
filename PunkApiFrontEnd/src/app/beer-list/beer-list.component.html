@@ -1,11 +1,19 @@
 
-<app-user-login></app-user-login>
-<div *ngIf="!showingFavourites">
-  <mat-form-field class="example-full-width">
-    <input  id="SearchInput" matInput placeholder="" [(ngModel)]="searchTerm" value="Search Beers">
-  </mat-form-field>
-  <button mat-button (click)="SearchBeersByName()">Search</button>
-</div>
+<mat-grid-list  class="TopPanel" cols="2" rowHeight="50" >
+  <mat-grid-tile>
+    <div *ngIf="!showingFavourites">
+      <mat-form-field class="example-full-width">
+        <input  id="SearchInput" matInput placeholder="" [(ngModel)]="searchTerm" value="Search Beers">
+      </mat-form-field>
+      <button mat-button (click)="SearchBeersByName()">Search</button>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <app-user-login></app-user-login>
+  </mat-grid-tile>
+</mat-grid-list>
+
+
 
 <mat-table class="beerTable" [dataSource]="displayBeers" class="mat-elevation-z8">
     <ng-container matColumnDef="name">

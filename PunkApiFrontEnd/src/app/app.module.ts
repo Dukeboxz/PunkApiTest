@@ -9,6 +9,7 @@ import { MatPaginatorModule} from '@angular/material/paginator'
 import { MatSortModule} from '@angular/material/sort'
 import {MatDividerModule} from '@angular/material/divider'
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatGridListModule } from '@angular/material/grid-list'
 import { ReactiveFormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from './app-routing.module';
@@ -32,7 +33,7 @@ import { UserLoginComponent } from './user-login/user-login.component';
     BrowserAnimationsModule,
     HttpClientModule,
     MatInputModule, MatPaginatorModule, MatProgressSpinnerModule, 
-  MatSortModule, MatTableModule , MatDividerModule, MatDialogModule, ReactiveFormsModule
+  MatSortModule, MatTableModule , MatDividerModule, MatDialogModule, MatGridListModule, ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

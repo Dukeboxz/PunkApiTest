@@ -176,7 +176,8 @@ export class BeerListComponent implements OnInit {
       imageUrl: selected.image_url,
       beerId: selected.id,
       abv: selected.abv
-    }
+    },height: '40%',
+    width: '60%'
   })
 }
 
